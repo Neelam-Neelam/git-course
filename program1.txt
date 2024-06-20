@@ -1,0 +1,952 @@
+
+package com.java.lambda.practice;
+
+public class ArmstrongNumber {
+     public static void main(String[] args) {
+         int n=2, temp, digits=0, last=0, sum=0;
+//assigning n into a temp variable
+         temp=n;
+//loop execute until the condition becomes false
+         while(temp>0)
+         {
+             temp = temp/10;
+             digits++;
+         }
+         temp = n;
+         while(temp>0)
+         {
+//determines the last digit from the number
+             last = temp % 10;
+//calculates the power of a number up to digit times and add the resultant to the sum variable
+             sum +=  (Math.pow(last, digits));
+//removes the last digit
+             temp = temp/10;
+         }
+//compares the sum with n
+         if(n==sum){
+             System.out.println("Armstrong number");
+
+         }
+         else{
+             System.out.println("Not Armstrong number");
+         }
+
+     }
+}
+
+package com.java.lambda.practice;
+
+public class ArrayInDesc {
+    public ArrayInDesc() {
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, -2, 3, -1, 5, 6, -3, 8, 0, 10};
+        int temp = false;
+
+        int i;
+        for(i = 0; i < arr.length; ++i) {
+            for(int j = i + 1; j < arr.length; ++j) {
+                if (arr[i] < arr[j]) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+
+        for(i = 0; i < arr.length; ++i) {
+            System.out.print(arr[i] + " ");
+        }
+
+    }
+}
+
+
+package com.java.lambda.practice;
+
+public class CopyOfElementsFromOneArrayToAnother {
+    public CopyOfElementsFromOneArrayToAnother() {
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] arr2 = new int[arr.length];
+
+        int i;
+        for(i = 0; i < arr.length; ++i) {
+            arr2[i] = arr[i];
+        }
+
+        for(i = 0; i < arr2.length; ++i) {
+            System.out.print(arr2[i]);
+        }
+
+    }
+}
+
+package com.java.lambda.practice;
+
+public class CountTheCharacters {
+    public CountTheCharacters() {
+    }
+
+    public static void main(String[] args) {
+        String s = "hello world is mine how are you";
+        String a = "hello world how are you";
+    }
+}
+
+package com.java.lambda.practice;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class DateFormate {
+    public DateFormate() {
+    }
+
+    public static void main(String[] args) throws Exception {
+        Date f = (new SimpleDateFormat("dd/MM/yyyy")).parse("14/10/2016");
+        System.out.print(f.getDate());
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+        System.out.println(sdf.format(d));
+    }
+}
+
+package com.java.lambda.practice;
+
+public class DeleteTheWord {
+    public DeleteTheWord() {
+    }
+
+    public static void main(String[] args) {
+        String sentence = "hi hello world how are you today";
+        String[] words = sentence.split(" ");
+        StringBuilder modifiedSentence = new StringBuilder();
+
+        for(int i = 0; i < words.length; ++i) {
+            if (i != 2) {
+                modifiedSentence.append(words[i]).append(" ");
+            }
+        }
+
+        System.out.println(modifiedSentence.toString().trim());
+    }
+}
+
+package com.java.lambda.practice;
+
+public class EvenNumbers {
+    public EvenNumbers() {
+    }
+
+    public static void main(String[] args) {
+        for(int i = 1; i <= 10; ++i) {
+            if (i % 2 == 0) {
+                System.out.println(i);
+            } else if (i % 2 == 1) {
+                System.out.print(i);
+            } else {
+                System.out.println("no odd even number");
+            }
+        }
+
+    }
+}
+
+
+package com.java.lambda.practice;
+
+public class Factorial {
+    public Factorial() {
+    }
+
+    public static void main(String[] args) {
+        int fact = 1;
+        int n = true;
+
+        for(int i = 1; i <= 5; ++i) {
+            fact *= i;
+        }
+
+        System.out.println(fact);
+    }
+}
+
+package com.java.lambda.practice;
+
+public class FibonacciSeries {
+    public FibonacciSeries() {
+    }
+
+    public static void main(String[] args) {
+        int n1 = 0;
+        int n2 = 1;
+        int count = 10;
+        System.out.print("" + n1 + " " + n2);
+
+        for(int i = 2; i < count; ++i) {
+            int n3 = n1 + n2;
+            System.out.print(" " + n3);
+            n1 = n2;
+            n2 = n3;
+        }
+
+    }
+}
+
+package com.java.lambda.practice;
+
+public class FindDuplicates {
+    public FindDuplicates() {
+    }
+
+    public static void main(String[] args) {
+    }
+}
+
+package com.java.lambda.practice;
+
+public class FindMin {
+    public FindMin() {
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{0, 2, 3, 3, 4, 5, 7, 1, 9, 10};
+        int min = arr[0];
+
+        for(int i = 1; i < arr.length; ++i) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+
+        System.out.println(min);
+    }
+}
+
+package com.java.lambda.practice;
+
+public class FindThirdLargest {
+    public FindThirdLargest() {
+    }
+
+    public static int getThirdLargest(int[] arr, int total) {
+        int temp = false;
+
+        for(int i = 0; i < arr.length; ++i) {
+            for(int j = i + 1; j < arr.length; ++j) {
+                if (arr[i] < arr[j]) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+
+        return arr[total - 3];
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 5, 6, 3, 4};
+        System.out.println(getThirdLargest(arr, arr.length));
+    }
+}
+
+
+package com.java.lambda.practice;
+
+public class FlowOfProgram {
+    public FlowOfProgram() {
+    }
+
+    public static void main(String[] args) {
+        String sentence = "Hi hello world how are you today";
+        String[] words = sentence.split(" ");
+        String firstWord = words[0];
+        if (words.length > 1) {
+            words[1] = (new StringBuffer(words[1])).reverse().toString();
+        }
+
+        if (words.length > 3) {
+            words[2] = (new StringBuffer(words[2])).reverse().toString();
+            words[3] = (new StringBuffer(words[3])).reverse().toString();
+            String temp = words[2];
+            words[2] = words[3];
+            words[3] = temp;
+        }
+
+        if (words.length > 4) {
+            words[4] = "";
+        }
+
+        if (words.length > 5 && "you".equals(words[5])) {
+            words[5] = words[5] + " mine";
+        }
+
+        StringBuffer sb = new StringBuffer(firstWord);
+
+        for(int i = 1; i < words.length; ++i) {
+            if (!words[i].isEmpty()) {
+                sb.append(" " + words[i]);
+            }
+        }
+
+        System.out.println(sb);
+    }
+}
+
+package com.java.lambda.practice;
+
+public class InsertthewordAt {
+    public InsertthewordAt() {
+    }
+
+    public static void main(String[] args) {
+        String sentence = "hi hello world how are you";
+        String wordToInsert = " wordl";
+        String targetWord = "world";
+        int firstSpace = sentence.indexOf(32);
+        System.out.println(firstSpace);
+        int secondSpace = sentence.indexOf(32, sentence.indexOf(32) + 1);
+        int thirdSpace = sentence.indexOf(32, secondSpace + 1);
+        System.out.println(firstSpace + 1);
+        System.out.println(secondSpace);
+        System.out.println(thirdSpace);
+        System.out.println(sentence.substring(secondSpace + 1, thirdSpace));
+        System.out.println(sentence.substring(firstSpace + 1, secondSpace));
+        System.out.println(sentence.substring(0, firstSpace));
+        System.out.println(sentence.substring(0, sentence.indexOf(32)));
+        System.out.println(sentence.length());
+        int targetWordIndex = sentence.indexOf(targetWord);
+        System.out.println(targetWordIndex);
+        System.out.println(targetWord.length());
+        System.out.println(targetWordIndex + targetWord.length());
+        System.out.println(sentence.substring(0, targetWordIndex + targetWord.length()));
+        String var10000 = sentence.substring(0, targetWordIndex + targetWord.length());
+        String modifiedSentence = var10000 + wordToInsert;
+
+        for(int i = 0; i < sentence.length(); ++i) {
+            System.out.print("" + i + " " + sentence.charAt(i));
+        }
+
+        System.out.println(sentence.substring(targetWordIndex + targetWord.length()));
+        System.out.println(modifiedSentence);
+    }
+}
+
+
+package com.java.lambda.practice;
+
+public class LargestOfNumbers {
+    public LargestOfNumbers() {
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int max = arr[0];
+
+        for(int i = 0; i < arr.length; ++i) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+
+        System.out.println(max);
+    }
+}
+
+package com.java.lambda.practice;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListOfStudents {
+    public ListOfStudents() {
+    }
+
+    public static void main(String[] args) {
+        List<Student> listOfStudents = new ArrayList();
+        listOfStudents.add(new Student(111, "John", 81.0, "Mathematics"));
+        listOfStudents.add(new Student(222, "Harsha", 79.5, "History"));
+        listOfStudents.add(new Student(333, "Ruth", 87.2, "Computers"));
+        listOfStudents.add(new Student(444, "Aroma", 63.2, "Mathematics"));
+        listOfStudents.add(new Student(555, "Zade", 83.5, "Computers"));
+        listOfStudents.add(new Student(666, "Xing", 58.5, "Geography"));
+        listOfStudents.add(new Student(777, "Richards", 72.6, "Banking"));
+        listOfStudents.add(new Student(888, "Sunil", 86.7, "History"));
+        listOfStudents.add(new Student(999, "Jordan", 58.6, "Finance"));
+        listOfStudents.add(new Student(101010, "Chris", 89.8, "Computers"));
+    }
+}
+
+package com.java.lambda.practice;
+
+public class MatrixLengthEqual {
+    public MatrixLengthEqual() {
+    }
+
+    public static void main(String[] args) {
+        int[][] a = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] b = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        System.out.println(a.length + " " + a[0].length + " " + b.length);
+        System.out.println(a.length == b.length);
+    }
+}
+
+package com.java.lambda.practice;
+
+public class MatrixMultiplication {
+    public MatrixMultiplication() {
+    }
+
+    public static void main(String[] args) {
+        int[][] a = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] b = new int[][]{{1, 2, 1}, {3, 4, 1}, {5, 6, 1}};
+        int[][] c = new int[3][3];
+
+        for(int i = 0; i < a.length; ++i) {
+            for(int j = 0; j < b.length; ++j) {
+                c[i][j] = 0;
+
+                for(int k = 0; k < c.length; ++k) {
+                    c[i][j] += a[i][k] * b[k][j];
+                }
+
+                System.out.print(c[i][j] + "\t");
+            }
+
+            System.out.println();
+        }
+
+    }
+}
+
+
+package com.java.lambda.practice;
+
+class Point {
+    private int x;
+    private int y;
+
+    public int getX() {
+        return this.x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public String toString() {
+        return "Point{x=" + this.x + ", y=" + this.y + "}";
+    }
+}
+
+public class PrimeNumber {
+    public PrimeNumber() {
+    }
+
+    public static void main(String[] args) {
+        int n = 3;
+        int count = 0;
+
+        for(int i = 1; i <= n; ++i) {
+            if (n % i == 0) {
+                ++count;
+                System.out.println(i);
+            }
+        }
+
+        if (count == 2) {
+            System.out.println("" + n + " is a prime number");
+            System.out.println(count);
+        } else {
+            System.out.println("not a prime number");
+        }
+
+    }
+}
+
+package com.java.lambda.practice;
+
+public class PrintDuplicates {
+    public PrintDuplicates() {
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 3, 4, 5, 4, 5, 8, 3, 10};
+        System.out.println(arr.length);
+
+        for(int i = 0; i < arr.length; ++i) {
+            for(int j = i + 1; j < arr.length; ++j) {
+                if (arr[i] == arr[j]) {
+                    System.out.print(arr[j] + " ");
+                }
+            }
+        }
+
+    }
+}
+
+
+package com.java.lambda.practice;
+
+public class PrintDuplicatesAndNonDuplicates {
+    public PrintDuplicatesAndNonDuplicates() {
+    }
+
+    public static void main(String[] args) {
+    }
+}
+
+package com.java.lambda.practice;
+
+public class PrintElementsInReverse {
+    public PrintElementsInReverse() {
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+        System.out.print(arr.length + " ");
+        System.out.print(arr.length - 1 + " ");
+
+        for(int i = arr.length - 1; i >= 0; --i) {
+            System.out.print(arr[i]);
+        }
+
+    }
+}
+
+package com.java.lambda.practice;
+
+public class PrintElementsOfArray {
+    public PrintElementsOfArray() {
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+        for(int i = 0; i < arr.length; ++i) {
+            System.out.println(arr[i]);
+        }
+
+    }
+}
+
+package com.java.lambda.practice;
+
+public class PrintEvenPositionElements {
+    public PrintEvenPositionElements() {
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+        for(int i = 0; i < arr.length; ++i) {
+            if (arr[i] % 2 == 0) {
+                System.out.println(arr[i]);
+            } else if (arr[i] % 2 == 1) {
+                System.out.print(arr[i]);
+            }
+        }
+
+    }
+}
+
+package com.java.lambda.practice;
+
+public class PrintSizeOfArray {
+    public PrintSizeOfArray() {
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        System.out.println(arr.length);
+    }
+}
+
+package com.java.lambda.practice;
+
+public class PrintSumOfAll {
+    public PrintSumOfAll() {
+    }
+
+    public static void main(String[] args) {
+        int sum = 0;
+        int[] a = new int[]{1, 2, 3, 4, 5, 6, 7};
+
+        for(int i = 0; i < a.length; ++i) {
+            sum += a[i];
+        }
+
+        System.out.println(sum);
+    }
+}
+
+package com.java.lambda.practice;
+
+public class Product {
+    public Product() {
+    }
+
+    public static void main(String[] args) {
+        int prod = 1;
+
+        for(int i = 1; i <= 5; ++i) {
+            prod *= i;
+        }
+
+        System.out.println(prod);
+    }
+}
+
+package com.java.lambda.practice;
+
+import java.io.PrintStream;
+import java.util.Random;
+
+public class RandomNumbers {
+    public RandomNumbers() {
+    }
+
+    public static void main(String[] args) {
+        Random rand = new Random();
+        PrintStream var10000 = System.out;
+        int var10001 = rand.nextInt(10);
+        var10000.println("" + var10001 + " " + rand.nextInt(10) + " " + rand.nextInt(10) + " " + rand.nextInt(10) + " " + rand.nextInt(10) + " " + rand.nextInt(10));
+    }
+}
+
+package com.java.lambda.practice;
+
+public class ReplaceAllWhiteSapces {
+    public ReplaceAllWhiteSapces() {
+    }
+
+    public static void main(String[] args) {
+        String originalString = "hello world how are you";
+        originalString = originalString.replaceAll("\\s", "");
+        System.out.println(originalString);
+    }
+}
+
+package com.java.lambda.practice;
+
+public class ReverseTheFirstAndLast {
+    public ReverseTheFirstAndLast() {
+    }
+
+    public static void main(String[] args) {
+        String sentence = "hi hello world how are you today";
+        String[] words = sentence.split(" ");
+        StringBuilder modifiedSentence = new StringBuilder();
+
+        for(int i = 0; i < words.length; ++i) {
+            if (i != 2) {
+                modifiedSentence.append(words[i]).append(" ");
+            }
+        }
+
+        System.out.println(modifiedSentence.toString().trim());
+    }
+}
+
+package com.java.lambda.practice;
+
+public class SortOfArray {
+    public SortOfArray() {
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 3, 6, 5, 4, 9, 8, 7};
+        int temp = false;
+
+        int i;
+        for(i = 0; i < arr.length; ++i) {
+            for(int j = i + 1; j < arr.length; ++j) {
+                if (arr[i] > arr[j]) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+
+        for(i = 0; i < arr.length; ++i) {
+            System.out.print(arr[i]);
+        }
+
+    }
+}
+
+
+package com.java.lambda.practice;
+
+public class Splittting {
+    public Splittting() {
+    }
+
+    public static void main(String[] args) {
+        String input = "ramuramuramu111111@@@@@";
+        int countRamu = input.length() - input.replace("ramu", "").length();
+        int count1 = (input.length() - input.replace("1", "").length()) / "1".length();
+        int countAt = (input.length() - input.replace("@", "").length()) / "@".length();
+        System.out.println("Number of 'ramu': " + countRamu / "ramu".length());
+        System.out.println("Number of '1': " + count1);
+        System.out.println("Number of '@': " + countAt);
+    }
+}
+
+
+package com.java.lambda.practice;
+
+public class StringClass {
+    public StringClass() {
+    }
+
+    public static void main(String[] args) {
+        String str = "12345mohini@#*";
+        char[] chars = str.toCharArray();
+        String w = "";
+        String d = "";
+        String s = "";
+
+        for(int i = 0; i < chars.length; ++i) {
+            if (chars[i] >= 'a' && chars[i] <= 'z' || chars[i] >= 'A' && chars[i] <= 'Z') {
+                w = w + chars[i];
+            } else if (chars[i] >= '0' && chars[i] <= '9') {
+                d = d + chars[i];
+            } else {
+                s = s + chars[i];
+            }
+        }
+
+        System.out.println(w);
+        System.out.println(d);
+        System.out.println(s);
+    }
+}
+
+
+package com.java.lambda.practice;
+
+public class StringSeparation {
+    public StringSeparation() {
+    }
+
+    public static void main(String[] args) {
+        String input = "iloveyou143$#@";
+        StringBuilder letters = new StringBuilder();
+        StringBuilder digits = new StringBuilder();
+        StringBuilder specialChars = new StringBuilder();
+        char[] var5 = input.toCharArray();
+        int var6 = var5.length;
+
+        int i;
+        int i;
+        for(i = 0; i < var6; ++i) {
+            i = var5[i];
+            if (Character.isLetter((char)i)) {
+                letters.append((char)i);
+            } else if (Character.isDigit((char)i)) {
+                digits.append((char)i);
+            } else {
+                specialChars.append((char)i);
+            }
+        }
+
+        String letterStr = letters.toString();
+        int[] digitArr = new int[digits.length()];
+
+        for(i = 0; i < digits.length(); ++i) {
+            digitArr[i] = Character.getNumericValue(digits.charAt(i));
+        }
+
+        char[] specialCharArr = new char[specialChars.length()];
+
+        for(i = 0; i < specialChars.length(); ++i) {
+            specialCharArr[i] = specialChars.charAt(i);
+        }
+
+        System.out.println("Letters: " + letterStr);
+        System.out.print("Digits: ");
+        int[] var15 = digitArr;
+        int var9 = digitArr.length;
+
+        int var10;
+        for(var10 = 0; var10 < var9; ++var10) {
+            int digit = var15[var10];
+            System.out.print("" + digit + " ");
+        }
+
+        System.out.println();
+        System.out.print("Special Characters: ");
+        char[] var16 = specialCharArr;
+        var9 = specialCharArr.length;
+
+        for(var10 = 0; var10 < var9; ++var10) {
+            char specialChar = var16[var10];
+            System.out.print("" + specialChar + " ");
+        }
+
+    }
+}
+
+
+package com.java.lambda.practice;
+
+public class StringToAscii {
+    public StringToAscii() {
+    }
+
+    public static void main(String[] args) {
+        String sentence = "Helloworldhowareyoudoingtoday66788@#$";
+        char[] charArray = sentence.toCharArray();
+        int digit = 0;
+        int s = 0;
+        char[] var5 = charArray;
+        int var6 = charArray.length;
+
+        for(int var7 = 0; var7 < var6; ++var7) {
+            char c = var5[var7];
+            if (Character.isLetter(c)) {
+                System.out.print("" + c + " ");
+            } else if (Character.isDigit(c)) {
+                ++digit;
+                System.out.print("" + c + " ");
+            } else {
+                ++s;
+                System.out.print("" + c + " ");
+            }
+        }
+
+        System.out.println(digit);
+        System.out.println(s);
+    }
+}
+
+package com.java.lambda.practice;
+
+class Student {
+    int id;
+    String name;
+    double percentage;
+    String specialization;
+
+    public Student(int id, String name, double percentage, String specialization) {
+        this.id = id;
+        this.name = name;
+        this.percentage = percentage;
+        this.specialization = specialization;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public double getPercentage() {
+        return this.percentage;
+    }
+
+    public String getSpecialization() {
+        return this.specialization;
+    }
+
+    public String toString() {
+        return this.id + "-" + this.name + "-" + this.percentage + "-" + this.specialization;
+    }
+}
+
+package com.java.lambda.practice;
+
+public class SubStringCount {
+    public SubStringCount() {
+    }
+
+    public static void main(String[] args) {
+        String input = "ramuramuramu111111@@@@@";
+        System.out.println(input.length());
+        int countRamu = input.length() - input.replace("ramu", "").length();
+        int count1 = (input.length() - input.replace("1", "").length()) / "1".length();
+        int countAt = (input.length() - input.replace("@", "").length()) / "@".length();
+        System.out.println("ramu".length());
+        System.out.println("Number of 'ramu': " + countRamu / "ramu".length());
+        System.out.println("Number of '1': " + count1);
+        System.out.println("Number of '@': " + countAt);
+    }
+}
+
+package com.java.lambda.practice;
+
+public class SumofNat {
+    public SumofNat() {
+    }
+
+    public static void main(String[] args) {
+        int sum = 0;
+
+        for(int i = 1; i <= 10; ++i) {
+            sum += i;
+        }
+
+        System.out.println(sum);
+    }
+}
+
+package com.java.lambda.practice;
+
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Stream;
+
+public class vertices {
+    public vertices() {
+    }
+
+    public static void main(String[] args) {
+        List<Point> points = Arrays.asList(new Point(1, 2), new Point(2, 3), new Point(3, 4));
+        Stream var10000 = points.stream().map((n) -> {
+            return new Point(n.getX() * 2, n.getY() * 2);
+        });
+        PrintStream var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        var10000.forEach(var10001::println);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

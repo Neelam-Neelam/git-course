@@ -1,0 +1,2302 @@
+
+//car program
+
+package com.java.lambda.defaultstatic;
+
+class Car implements Vehicle {
+    Car() {
+    }
+
+    public String getBrand() {
+        return "BMW";
+    }
+
+    public String speedUp() {
+        return "the car is speeding up";
+    }
+
+    public String slowDown() {
+        return "the car is slowing down";
+    }
+}
+
+
+package com.java.lambda.defaultstatic;
+
+public class DefaultDemo {
+    public DefaultDemo() {
+    }
+
+    public static void main(String[] args) {
+        Vehicle vehicle = new Car();
+        System.out.println(vehicle.speedUp());
+        vehicle.slowDown();
+        vehicle.getBrand();
+        vehicle.turnAlarmOn();
+        vehicle.turnAlarmOff();
+    }
+}
+
+package com.java.lambda.defaultstatic;
+
+interface Vehicle {
+    String getBrand();
+
+    String speedUp();
+
+    String slowDown();
+
+    default String turnAlarmOn() {
+        return "turn alarm on";
+    }
+
+    default String turnAlarmOff() {
+        return "turn alarm off";
+    }
+}
+
+//employee management
+
+package com.java.lambda.employeemanagement;
+
+public class Employee {
+    int id;
+    String name;
+    int age;
+    String gender;
+    String department;
+    int yearOfJoining;
+    double salary;
+
+    public Employee(int id, String name, int age, String gender, String department, int yearOfJoining, double salary) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.department = department;
+        this.yearOfJoining = yearOfJoining;
+        this.salary = salary;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public String getGender() {
+        return this.gender;
+    }
+
+    public String getDepartment() {
+        return this.department;
+    }
+
+    public int getYearOfJoining() {
+        return this.yearOfJoining;
+    }
+
+    public double getSalary() {
+        return this.salary;
+    }
+
+    public String toString() {
+        return "Id : " + this.id + ", Name : " + this.name + ", age : " + this.age + ", Gender : " + this.gender + ", Department : " + this.department + ", Year Of Joining : " + this.yearOfJoining + ", Salary : " + this.salary;
+    }
+}
+
+package com.java.lambda.employeemanagement;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class EmployeeManagementSystem {
+    public EmployeeManagementSystem() {
+    }
+
+    public static void main(String[] args) {
+        List<Employee> employeeList = new ArrayList();
+        employeeList.add(new Employee(111, "Jiya Brein", 32, "Female", "HR", 2011, 25000.0));
+        employeeList.add(new Employee(122, "Paul Niksui", 25, "Male", "Sales And Marketing", 2015, 13500.0));
+        employeeList.add(new Employee(133, "Martin Theron", 29, "Male", "Infrastructure", 2012, 18000.0));
+        employeeList.add(new Employee(144, "Murali Gowda", 28, "Male", "Product Development", 2014, 32500.0));
+        employeeList.add(new Employee(155, "Nima Roy", 27, "Female", "HR", 2013, 22700.0));
+        employeeList.add(new Employee(166, "Iqbal Hussain", 43, "Male", "Security And Transport", 2016, 10500.0));
+        employeeList.add(new Employee(177, "Manu Sharma", 35, "Male", "Account And Finance", 2010, 27000.0));
+        employeeList.add(new Employee(188, "Wang Liu", 31, "Male", "Product Development", 2015, 34500.0));
+        employeeList.add(new Employee(199, "Amelia Zoe", 24, "Female", "Sales And Marketing", 2016, 11500.0));
+        employeeList.add(new Employee(200, "Jaden Dough", 38, "Male", "Security And Transport", 2015, 11000.5));
+        employeeList.add(new Employee(211, "Jasna Kaur", 27, "Female", "Infrastructure", 2014, 15700.0));
+        employeeList.add(new Employee(222, "Nitin Joshi", 25, "Male", "Product Development", 2016, 28200.0));
+        employeeList.add(new Employee(233, "Jyothi Reddy", 27, "Female", "Account And Finance", 2013, 21300.0));
+        employeeList.add(new Employee(244, "Nicolus Den", 24, "Male", "Sales And Marketing", 2017, 10700.5));
+        employeeList.add(new Employee(255, "Ali Baig", 23, "Male", "Infrastructure", 2018, 12700.0));
+        employeeList.add(new Employee(266, "Sanvi Pandey", 26, "Female", "Product Development", 2015, 28900.0));
+        employeeList.add(new Employee(277, "Anuj Chettiar", 31, "Male", "Product Development", 2012, 35700.0));
+    }
+}
+
+//foreach
+
+package com.java.lambda.foreach;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class ListForEachExample {
+    public ListForEachExample() {
+    }
+
+    public static void main(String[] args) {
+        List<Person> people = new ArrayList();
+        people.add(new Person("prasanth", 25));
+        people.add(new Person("chinna", 24));
+        people.add(new Person("james", 25));
+        Iterator var2 = people.iterator();
+
+        while(var2.hasNext()) {
+            Person person = (Person)var2.next();
+            System.out.println(person.getName());
+            System.out.println(person.getAge());
+        }
+
+        people.forEach((personx) -> {
+            System.out.println(personx.getName());
+            System.out.println(personx.getAge());
+        });
+    }
+}
+
+package com.java.lambda.foreach;
+
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+public class MapForEachEaxample {
+    public MapForEachEaxample() {
+    }
+
+    public static void main(String[] args) {
+        Map<Integer, Person> map = new HashMap();
+        map.put(1, new Person("ramesh", 25));
+        map.put(2, new Person("somesh", 26));
+        Iterator var2 = map.entrySet().iterator();
+
+        while(var2.hasNext()) {
+            Map.Entry<Integer, Person> entry = (Map.Entry)var2.next();
+            PrintStream var10000 = System.out;
+            Object var10001 = entry.getKey();
+            var10000.println("" + var10001 + " " + ((Person)entry.getValue()).getName());
+        }
+
+        map.forEach((k, v) -> {
+            System.out.println("" + k + " " + v.getName());
+        });
+    }
+}
+
+package com.java.lambda.foreach;
+
+class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String toString() {
+        return "Person{name='" + this.name + "', age=" + this.age + "}";
+    }
+}
+
+package com.java.lambda.foreach;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+public class SetForEachExample {
+    public SetForEachExample() {
+    }
+
+    public static void main(String[] args) {
+        Set<Person> set = new HashSet();
+        set.add(new Person("ramesh", 25));
+        set.add(new Person("somesh", 26));
+        set.add(new Person("lokesh", 27));
+        Iterator var2 = set.iterator();
+
+        while(var2.hasNext()) {
+            Person person = (Person)var2.next();
+            System.out.println(person.getName());
+            System.out.println(person.getAge());
+        }
+
+        set.forEach((p) -> {
+            System.out.println(p.getName());
+            System.out.println(p.getAge());
+        });
+        set.stream().forEach((p) -> {
+            System.out.println(p.getName());
+            System.out.println(p.getAge());
+        });
+    }
+}
+
+//functional
+
+package com.java.lambda.functional;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.BiConsumer;
+
+public class BiConsumerDemo implements BiConsumer<String, Integer> {
+    public BiConsumerDemo() {
+    }
+
+    public void accept(String s, Integer integer) {
+        System.out.println(s + " " + integer);
+    }
+
+    public static void main(String[] args) {
+        BiConsumer<Integer, Integer> addition = (x, y) -> {
+            System.out.println(x + y);
+        };
+        BiConsumer<Integer, Integer> substraction = (x, y) -> {
+            System.out.println(x - y);
+        };
+        BiConsumer<Integer, Integer> multiplication = (x, y) -> {
+            System.out.println(x * y);
+        };
+        BiConsumer<Integer, Integer> division = (x, y) -> {
+            System.out.println(x / y);
+        };
+        addition.andThen(substraction).andThen(multiplication).andThen(division).accept(1, 2);
+        Map<Integer, String> map = new LinkedHashMap();
+        map.put(1, "java");
+        map.put(2, "python");
+        map.put(3, "c");
+        map.put(4, "c++");
+        map.forEach((k, v) -> {
+            System.out.println("" + k + " " + v);
+        });
+        BiConsumer<String, Integer> biConsumerDemo = (s, integer) -> {
+            System.out.println(s + " " + integer);
+        };
+        biConsumerDemo.accept("hello", 1);
+    }
+}
+
+package com.java.lambda.functional;
+
+import java.util.function.BiFunction;
+import java.util.function.Function;
+
+public class BIFunction implements BiFunction<Integer, Integer, Integer> {
+    public BIFunction() {
+    }
+
+    public Integer apply(Integer integer, Integer integer2) {
+        return integer + integer2;
+    }
+
+    public static void main(String[] args) {
+        BiFunction<Integer, Integer, Integer> biFunction = new BIFunction();
+        System.out.println(biFunction.apply(1, 2));
+        BiFunction<Integer, Integer, Integer> biFunction2 = (a, b) -> {
+            return a + b;
+        };
+        System.out.println(biFunction2.apply(1, 2));
+        Function<Integer, Integer> function = (number) -> {
+            return number * number;
+        };
+        BiFunction<Integer, Integer, Integer> function2 = (a, b) -> {
+            return a + b;
+        };
+        Integer integer = (Integer)function2.andThen(function).apply(2, 2);
+        System.out.println(integer);
+    }
+}
+
+package com.java.lambda.functional;
+
+import java.util.function.BiPredicate;
+
+public class BiPredicateDemo implements BiPredicate<String, String> {
+    public BiPredicateDemo() {
+    }
+
+    public static void main(String[] args) {
+        BiPredicate<String, String> biPredicate = new BiPredicateDemo();
+        System.out.println(biPredicate.test("a", "b"));
+        System.out.println(biPredicate.test("java", "guides"));
+        BiPredicate<String, String> biPredicate1 = (a, b) -> {
+            return a.equals(b);
+        };
+        System.out.println(biPredicate1.test("a", "b"));
+        BiPredicate<Integer, Integer> biPredicate2 = (x, y) -> {
+            return x > y;
+        };
+        BiPredicate<Integer, Integer> biPredicate3 = (x, y) -> {
+            return x == y;
+        };
+        boolean result = biPredicate2.and(biPredicate3).test(1, 2);
+        System.out.println(result);
+        boolean result1 = biPredicate2.or(biPredicate3).test(20, 10);
+        System.out.println(result1);
+    }
+
+    public boolean test(String s, String s2) {
+        return s.equals(s2);
+    }
+}
+
+
+package com.java.lambda.functional;
+
+import java.util.function.Consumer;
+
+class ConsumeImpl implements Consumer<String> {
+    ConsumeImpl() {
+    }
+
+    public void accept(String input) {
+        System.out.println(input);
+    }
+}
+
+
+package com.java.lambda.functional;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+
+public class ConsumerDemo {
+    public ConsumerDemo() {
+    }
+
+    public static void main(String[] args) {
+        Consumer<String> consumer = new ConsumeImpl();
+        consumer.accept("Hello");
+        Consumer<String> consumer1 = (input) -> {
+            System.out.println(input);
+        };
+        consumer1.accept("World");
+        Consumer<String> consumer2 = (input) -> {
+            System.out.println(input + "world");
+        };
+        Consumer<String> consumer3 = (input) -> {
+            System.out.println(input + "java");
+        };
+        consumer2.andThen(consumer3).accept("hello");
+        List<Integer> integers = Arrays.asList(1, 2, 3, 4);
+        Consumer<Integer> consumer4 = (input) -> {
+            System.out.println(input);
+        };
+        integers.forEach(consumer4);
+    }
+}
+
+
+package com.java.lambda.functional;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+
+public class ConsumerExample {
+    public ConsumerExample() {
+    }
+
+    public static void main(String[] args) {
+        List<Person> people = new ArrayList();
+        people.add(new Person("Tony", 45));
+        people.add(new Person("Jack", 55));
+        people.add(new Person("ack", 35));
+        people.forEach((person) -> {
+            System.out.println(person.getName());
+        });
+        Consumer<Person> printPerson = (person) -> {
+            System.out.println(person.getName());
+            System.out.println(person.getAge());
+        };
+        printPerson.accept(new Person("ramesh", 29));
+    }
+}
+
+
+package com.java.lambda.functional;
+
+public class CustomFunctionalnterface {
+    public CustomFunctionalnterface() {
+    }
+
+    public static void main(String[] args) {
+        Printable printable = new Printable() {
+            public void print(String message) {
+                System.out.println(message);
+            }
+        };
+        printable.print("Hello World");
+    }
+}
+
+
+package com.java.lambda.functional;
+
+import java.util.function.Function;
+
+public class FunctionalDemo {
+    public FunctionalDemo() {
+    }
+
+    public static void main(String[] args) {
+        Function<String, Integer> f = (s) -> {
+            return s.length();
+        };
+        Function<String, Integer> f1 = String::length;
+        System.out.println(f.apply("hello"));
+        System.out.println(f1.apply("hello"));
+    }
+}
+
+package com.java.lambda.functional;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+
+public class FunctionDemo {
+    public FunctionDemo() {
+    }
+
+    public static void main(String[] args) {
+        Function<String, Integer> function = new Function<String, Integer>() {
+            public Integer apply(String s) {
+                return s.length();
+            }
+        };
+        System.out.println(function.apply("hello"));
+        Function<Integer, String> f2 = (number) -> {
+            return number % 2 == 0 ? "Number" + number + "is even" : "Number" + number + "is odd";
+        };
+        System.out.println((String)f2.apply(2));
+        Function<String, Integer> f3 = (t) -> {
+            return t.length();
+        };
+        Function<Integer, Integer> function4 = (number) -> {
+            return number * 2;
+        };
+        Integer integer = (Integer)f3.andThen(function4).apply("lion");
+        System.out.println(integer);
+        List<String> list = Arrays.asList("java", "lambda", "function");
+        Map<String, Integer> map = convertListToMap(list, (x) -> {
+            return x.length();
+        });
+        System.out.println(map);
+    }
+
+    private static <T, R> Map<T, R> convertListToMap(List<T> list, Function<T, R> f) {
+        Map<T, R> map = new HashMap();
+        Iterator var3 = list.iterator();
+
+        while(var3.hasNext()) {
+            T t = var3.next();
+            map.put(t, f.apply(t));
+        }
+
+        return map;
+    }
+}
+
+package com.java.lambda.functional;
+
+import java.util.function.Function;
+
+class FunctonalImpl implements Function<String, Integer> {
+    FunctonalImpl() {
+    }
+
+    public Integer apply(String s) {
+        return s.length();
+    }
+}
+
+
+package com.java.lambda.functional;
+
+public class LambdaExample {
+    public LambdaExample() {
+    }
+
+    public static void main(String[] args) {
+        Shape rectangle = () -> {
+            System.out.println("Rectangle");
+        };
+        rectangle.draw();
+    }
+}
+
+
+package com.java.lambda.functional;
+
+public interface MyFunctionalInterface {
+    void print(String var1);
+
+    default void m1() {
+        this.print("m1");
+        System.out.println("m1");
+    }
+
+    static void m2() {
+        System.out.println("m2");
+    }
+}
+
+package com.java.lambda.functional;
+
+class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+
+package com.java.lambda.functional;
+
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+public class PredicateDemo implements Predicate<Integer> {
+    public PredicateDemo() {
+    }
+
+    public boolean test(Integer integer) {
+        return integer % 2 == 0;
+    }
+
+    public static void main(String[] args) {
+        Predicate<Integer> predicate = new PredicateDemo();
+        System.out.println(predicate.test(5));
+        Predicate<Integer> predicate1 = (integer) -> {
+            return integer % 2 == 0;
+        };
+        System.out.println(predicate1.test(8));
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        Predicate<Integer> predicate2 = (x) -> {
+            return x > 5;
+        };
+        List var10000 = (List)list.stream().filter(predicate2).collect(Collectors.toList());
+        PrintStream var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        var10000.forEach(var10001::println);
+        Predicate<String> predicate3 = (x) -> {
+            return x.length() == 3;
+        };
+        Predicate<String> predicate4 = (x) -> {
+            return x.startsWith("A");
+        };
+        List<String> list2 = Arrays.asList("A", "AA", "AAA", "B", "BB", "BBB");
+        List<String> collect = (List)list2.stream().filter(predicate3.or(predicate4)).collect(Collectors.toList());
+        System.out.println(collect);
+    }
+}
+
+
+package com.java.lambda.functional;
+
+import java.util.function.Predicate;
+
+public class PredicateExample {
+    public PredicateExample() {
+    }
+
+    public static void main(String[] args) {
+        Predicate<Person> p = (person) -> {
+            return person.getAge() > 30;
+        };
+        boolean result = p.test(new Person("John", 30));
+        System.out.println(result);
+    }
+}
+
+
+package com.java.lambda.functional;
+
+@FunctionalInterface
+interface Printable {
+    void print(String var1);
+}
+
+
+package com.java.lambda.functional;
+
+public class Product {
+    private int id;
+    private String name;
+    private float price;
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public float getPrice() {
+        return this.price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public Product(int id, String name, float price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    public String toString() {
+        return "Product{id=" + this.id + ", name='" + this.name + "', price=" + this.price + "}";
+    }
+}
+
+
+package com.java.lambda.functional;
+
+class Rectangle implements Shape {
+    Rectangle() {
+    }
+
+    public void draw() {
+        System.out.println("Rectangle");
+    }
+}
+
+package com.java.lambda.functional;
+
+public class RunnableLambdaExample {
+    public RunnableLambdaExample() {
+    }
+
+    public static void main(String[] args) {
+        Thread t1 = new Thread(new ThreadDemo());
+        t1.start();
+        Runnable r = () -> {
+            System.out.println("Hello World");
+        };
+        Thread t2 = new Thread(r);
+        t2.start();
+    }
+}
+
+
+package com.java.lambda.functional;
+
+interface Shape {
+    void draw();
+}
+
+
+package com.java.lambda.functional;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
+
+public class SupplierDemo {
+    public SupplierDemo() {
+    }
+
+    public static void main(String[] args) {
+        System.out.println(productSupplier().get());
+    }
+
+    private static Supplier<List<Product>> productSupplier() {
+        Supplier<List<Product>> product = () -> {
+            List<Product> list = new ArrayList();
+            list.add(new Product(1, "HP", 25000.0F));
+            list.add(new Product(2, "Dell", 35000.0F));
+            list.add(new Product(3, "Samsung", 45000.0F));
+            list.add(new Product(4, "Sony Laptop", 55000.0F));
+            list.add(new Product(5, "Samsung Galaxy", 60000.0F));
+            list.add(new Product(6, "Apple", 6000.0F));
+            return list;
+        };
+        return product;
+    }
+}
+
+
+package com.java.lambda.functional;
+
+import java.util.function.Supplier;
+
+public class SupplierExample {
+    public SupplierExample() {
+    }
+
+    public static void main(String[] args) {
+        Supplier<Person> supplier = () -> {
+            return new Person("ramesh", 30);
+        };
+        Person person = (Person)supplier.get();
+        System.out.println(person.getName());
+    }
+}
+
+
+package com.java.lambda.functional;
+
+class ThreadDemo implements Runnable {
+    ThreadDemo() {
+    }
+
+    public void run() {
+        System.out.println("Hello World");
+    }
+}
+
+
+package com.java.lambda.javastreamapi;
+
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Stream;
+
+public class CreateStreamObjects {
+    public CreateStreamObjects() {
+    }
+
+    public static void main(String[] args) {
+        Stream<String> stream = Stream.of("a", "b", "c");
+        PrintStream var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        stream.forEach(var10001::println);
+        Collection<String> collection = Arrays.asList("java", "python", "spring", "hiberanate");
+        Stream<String> stream2 = collection.stream();
+        var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        collection.forEach(var10001::println);
+        List<String> list = Arrays.asList("java", "python", "spring", "hiberanate");
+        Stream<String> stream3 = list.stream();
+        var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        list.forEach(var10001::println);
+        Set<String> set = new HashSet(Arrays.asList("java", "python", "spring", "hiberanate"));
+        Stream<String> stream4 = set.stream();
+        var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        set.forEach(var10001::println);
+        String[] strArray = new String[]{"java", "python", "spring", "hiberanate"};
+        Stream<String> stream5 = Arrays.stream(strArray);
+        var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        stream5.forEach(var10001::println);
+    }
+}
+
+package com.java.lambda.javastreamapi;
+
+public class Employee {
+    private int id;
+    private String name;
+    private int age;
+    private int salary;
+
+    public Employee(int id, String name, int age, int salary) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getSalary() {
+        return this.salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public String toString() {
+        return "Employee{id=" + this.id + ", name='" + this.name + "', age=" + this.age + ", salary=" + this.salary + "}";
+    }
+}
+
+package com.java.lambda.javastreamapi;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+public class FindElementsExample {
+    public FindElementsExample() {
+    }
+
+    public static void main(String[] args) {
+        List<Integer> list = Arrays.asList(1, 2, 3, 2, 1);
+        Optional<Integer> element = list.stream().findFirst();
+        if (element.isPresent()) {
+            System.out.println(element.get());
+        } else {
+            System.out.println("Element not found");
+        }
+
+        Optional<Integer> element1 = list.stream().findAny();
+        if (element1.isPresent()) {
+            System.out.println(element1.get());
+        } else {
+            System.out.println("Element not found");
+        }
+
+    }
+}
+
+
+package com.java.lambda.javastreamapi;
+
+class Product {
+    private int id;
+    private String name;
+    private float price;
+
+    public Product(int id, String name, float price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public float getPrice() {
+        return this.price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public String toString() {
+        return "Product{id=" + this.id + ", name='" + this.name + "', price=" + this.price + "}";
+    }
+}
+
+package com.java.lambda.javastreamapi;
+
+import java.util.stream.Stream;
+
+public class StreamExample {
+    public StreamExample() {
+    }
+
+    public static void main(String[] args) {
+        Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5);
+        System.out.println(stream.count());
+    }
+}
+
+package com.java.lambda.javastreamapi;
+
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class StreamFilter {
+    public StreamFilter() {
+    }
+
+    public static void main(String[] args) {
+        List<Product> list = new ArrayList();
+        Iterator var2 = getProducts().iterator();
+
+        Product product;
+        while(var2.hasNext()) {
+            product = (Product)var2.next();
+            if (product.getPrice() > 25000.0F) {
+                list.add(product);
+            }
+        }
+
+        var2 = list.iterator();
+
+        while(var2.hasNext()) {
+            product = (Product)var2.next();
+            System.out.println(product);
+        }
+
+        List<Product> list2 = (List)getProducts().stream().filter((productx) -> {
+            return productx.getPrice() > 25000.0F;
+        }).collect(Collectors.toList());
+        PrintStream var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        list2.forEach(var10001::println);
+        Stream var10000 = getProducts().stream().filter((productx) -> {
+            return productx.getPrice() > 25000.0F;
+        });
+        var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        var10000.forEach(var10001::println);
+    }
+
+    private static List<Product> getProducts() {
+        List<Product> products = new ArrayList();
+        products.add(new Product(1, "HP", 25000.0F));
+        products.add(new Product(2, "Dell", 35000.0F));
+        products.add(new Product(3, "Samsung", 55000.0F));
+        products.add(new Product(4, "LG", 45000.0F));
+        products.add(new Product(5, "realme", 35000.0F));
+        return products;
+    }
+}
+
+package com.java.lambda.javastreamapi;
+
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class StreamListSorting {
+    public StreamListSorting() {
+    }
+
+    public static void main(String[] args) {
+        List<String> fruits = new ArrayList();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Orange");
+        fruits.add("Pear");
+        List<String> sortedList = (List)fruits.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());
+        System.out.println(sortedList);
+        List<String> fruits2 = (List)fruits.stream().sorted((o1, o2) -> {
+            return o1.compareTo(o2);
+        }).collect(Collectors.toList());
+        System.out.println(fruits2);
+        Stream var10000 = fruits.stream().sorted(String::compareTo);
+        PrintStream var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        var10000.forEach(var10001::println);
+        List<String> sortedList2 = (List)fruits.stream().sorted().collect(Collectors.toList());
+        System.out.println(sortedList2);
+        List<String> sortedList3 = (List)fruits.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        System.out.println(sortedList3);
+        List<String> sortedList4 = (List)fruits.stream().sorted((o1, o2) -> {
+            return o2.compareTo(o1);
+        }).collect(Collectors.toList());
+        System.out.println(sortedList4);
+        List<Employee> employees = new ArrayList();
+        employees.add(new Employee(10, "ramesh", 30, 400000));
+        employees.add(new Employee(20, "james", 29, 350000));
+        employees.add(new Employee(30, "sanjay", 30, 450000));
+        employees.add(new Employee(40, "pramod", 29, 500000));
+        List<Employee> employeeSortedList = (List)employees.stream().sorted(new Comparator<Employee>() {
+            public int compare(Employee o1, Employee o2) {
+                return o1.getSalary() - o2.getSalary();
+            }
+        }).collect(Collectors.toList());
+        System.out.println(employeeSortedList);
+        List<Employee> employeesSortedList1 = (List)employees.stream().sorted((o1, o2) -> {
+            return o1.getSalary() - o2.getSalary();
+        }).collect(Collectors.toList());
+        System.out.println(employeesSortedList1);
+        List<Employee> employeesSortedList2 = (List)employees.stream().sorted((o1, o2) -> {
+            return o2.getSalary() - o1.getSalary();
+        }).collect(Collectors.toList());
+        System.out.println(employeesSortedList2);
+        List<Employee> employeesSortedList3 = (List)employees.stream().sorted(Comparator.comparing(Employee::getSalary)).collect(Collectors.toList());
+        System.out.println(employeesSortedList3);
+        List<Employee> employeesSortedList4 = (List)employees.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).collect(Collectors.toList());
+        System.out.println(employeesSortedList4);
+        List<Employee> employeesSortedList5 = (List)employees.stream().sorted(Comparator.comparing(Employee::getAge)).collect(Collectors.toList());
+        System.out.println(employeesSortedList5);
+        List<Employee> employeesSortedList6 = (List)employees.stream().sorted(Comparator.comparing(Employee::getAge).reversed()).collect(Collectors.toList());
+        System.out.println(employeesSortedList6);
+        List<Employee> employeesSortedList7 = (List)employees.stream().sorted(Comparator.comparing(Employee::getName)).collect(Collectors.toList());
+        System.out.println(employeesSortedList7);
+    }
+}
+
+
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.function.Function;
+
+public class StreamMapCollectExample {
+    public StreamMapCollectExample() {
+    }
+
+    public static void main(String[] args) {
+        List<User> users = new ArrayList();
+        users.add(new User(1, "ramesh", "secret", "prasanthnm3@gmail.com"));
+        users.add(new User(2, "tony", "secret", "tony@gmail.com"));
+        users.add(new User(3, "john", "secret", "john@gmail.com"));
+        List<UserDTO> usersDTO = new ArrayList();
+        UserDTO dto = null;
+        Iterator var4 = users.iterator();
+
+        while(var4.hasNext()) {
+            User user = (User)var4.next();
+            dto = new UserDTO(user.getId(), user.getName(), user.getEmail());
+            usersDTO.add(dto);
+        }
+
+        var4 = usersDTO.iterator();
+
+        while(var4.hasNext()) {
+            UserDTO userDTO = (UserDTO)var4.next();
+            System.out.println(userDTO);
+        }
+
+        users.stream().map(new Function<User, UserDTO>() {
+            public UserDTO apply(User user) {
+                return new UserDTO(user.getId(), user.getName(), user.getEmail());
+            }
+        });
+        users.stream().map((userx) -> {
+            return new UserDTO(userx.getId(), userx.getName(), userx.getEmail());
+        }).forEach((userDTOx) -> {
+            System.out.println(userDTOx);
+        });
+    }
+}
+
+
+package com.java.lambda.javastreamapi;
+
+class User {
+    private int id;
+    private String name;
+    private String password;
+    private String email;
+
+    public User(int id, String name, String password, String email) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String toString() {
+        return "user{id=" + this.id + ", name='" + this.name + "', password='" + this.password + "', email='" + this.email + "'}";
+    }
+}
+
+package com.java.lambda.javastreamapi;
+
+class UserDTO {
+    private int id;
+    private String name;
+    private String email;
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public UserDTO(int id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
+    public String toString() {
+        return "UserDTO{id=" + this.id + ", name='" + this.name + "', email='" + this.email + "'}";
+    }
+}
+
+package com.java.lambda.lambdau;
+
+interface Addable {
+    int add(int var1, int var2);
+}
+
+
+package com.java.lambda.lambdau;
+
+class Addable_imp implements Addable {
+    Addable_imp() {
+    }
+
+    public int add(int a, int b) {
+        return a + b;
+    }
+}
+
+package com.java.lambda.lambdau;
+
+@FunctionalInterface
+interface Arithematic {
+    int operations(int var1, int var2);
+}
+
+package com.java.lambda.lambdau;
+
+public class Employee {
+    private int id;
+    private String name;
+    private int age;
+    private long salary;
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public long getSalary() {
+        return this.salary;
+    }
+
+    public void setSalary(long salary) {
+        this.salary = salary;
+    }
+
+    public Employee(int id, String name, int age, long salary) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    public String toString() {
+        return "Employee{id=" + this.id + ", name='" + this.name + "', age=" + this.age + ", salary=" + this.salary + "}";
+    }
+}
+
+package com.java.lambda.lambdau;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class LambaExample5 {
+    public LambaExample5() {
+    }
+
+    public static void main(String[] args) {
+        List<String> list = new ArrayList();
+        list.add("c");
+        list.add("C++");
+        list.add("Java");
+        Iterator var2 = list.iterator();
+
+        while(var2.hasNext()) {
+            String s = (String)var2.next();
+            System.out.println(s);
+        }
+
+        list.forEach((element) -> {
+            System.out.println(element);
+        });
+    }
+}
+
+package com.java.lambda.lambdau;
+
+import java.util.Objects;
+
+public class LambdaExample {
+    public LambdaExample() {
+    }
+
+    public static void main(String[] args) {
+        String str = "hello";
+        Shape rectangle = () -> {
+            System.out.println("Rectangle");
+        };
+        Objects.requireNonNull(rectangle);
+        print(rectangle::draw);
+        print(() -> {
+            System.out.println("square");
+        });
+        print(() -> {
+            System.out.println("triangle");
+        });
+    }
+
+    public static void print(Shape s) {
+        s.draw();
+    }
+}
+
+
+package com.java.lambda.lambdau;
+
+public class LambdaExample2 {
+    public LambdaExample2() {
+    }
+
+    public static void main(String[] args) {
+        Printable printable = new Printable() {
+            public void print(String message) {
+                System.out.println(message);
+            }
+        };
+        printable.print("Hello World");
+        Printable printable2 = (message) -> {
+            System.out.println(message);
+        };
+        printable2.print("Hello World");
+    }
+}
+
+package com.java.lambda.lambdau;
+
+public class LambdaNumbers {
+    public LambdaNumbers() {
+    }
+
+    public static void main(String[] args) {
+        Arithematic arithmetic = new Arithematic() {
+            public int operations(int a, int b) {
+                return a + b;
+            }
+        };
+        System.out.println(arithmetic.operations(3, 4));
+        Arithematic arithmetic1 = (a, b) -> {
+            return a + b;
+        };
+        System.out.println(arithmetic1.operations(3, 4));
+        Arithematic division = new Arithematic() {
+            public int operations(int a, int b) {
+                return a / b;
+            }
+        };
+        System.out.println(division.operations(3, 4));
+        Arithematic division1 = (a, b) -> {
+            return a / b;
+        };
+        System.out.println(division1.operations(3, 4));
+        Arithematic mul = (a, b) -> {
+            return a * b;
+        };
+        System.out.println(mul.operations(3, 4));
+    }
+}
+
+package com.java.lambda.lambdau;
+
+public class LambdaNuRunn {
+    public LambdaNuRunn() {
+    }
+
+    public static void main(String[] args) {
+        Runnable r = new Runnable() {
+            public void run() {
+                System.out.println(Thread.currentThread().getName());
+            }
+        };
+        Thread t1 = new Thread(r);
+        t1.start();
+        Runnable r1 = () -> {
+            System.out.println(Thread.currentThread().getName());
+        };
+        Thread t2 = new Thread(r1);
+        t2.start();
+    }
+}
+
+
+package com.java.lambda.lambdau;
+
+public class LambdaParameters {
+    public LambdaParameters() {
+    }
+
+    public static void main(String[] args) {
+        Addable add = (a, b) -> {
+            return a + b;
+        };
+        int result = add.add(1, 2);
+        System.out.println(result);
+        Addable add2 = (a, b) -> {
+            int c = a + b;
+            return c;
+        };
+        int result2 = add2.add(1, 2);
+        System.out.println(result2);
+    }
+}
+
+MySort implements Comparator<Employee> {
+    MySort() {
+    }
+
+    public int compare(Employee o1, Employee o2) {
+        return (int)(o2.getSalary() - o1.getSalary());
+    }
+}
+
+
+package com.java.lambda.lambdau;
+
+class MyThread implements Runnable {
+    MyThread() {
+    }
+
+    public void run() {
+        System.out.println(Thread.currentThread().getName());
+    }
+}
+
+package com.java.lambda.lambdau;
+
+interface Printable {
+    void print(String var1);
+}
+
+package com.java.lambda.lambdau;
+
+class Rectangle implements Shape {
+    Rectangle() {
+    }
+
+    public void draw() {
+        System.out.println("Rectangle");
+    }
+}
+
+
+package com.java.lambda.lambdau;
+
+public class RunnableLambdaExample {
+    public RunnableLambdaExample() {
+    }
+
+    public static void main(String[] args) {
+        Thread t1 = new Thread(new ThreadDemo());
+        t1.start();
+        Runnable runnable = () -> {
+            System.out.println("runnable called");
+        };
+        Thread t2 = new Thread(() -> {
+            System.out.println("runnable called");
+        });
+        t2.start();
+    }
+}
+
+
+package com.java.lambda.lambdau;
+
+interface Shape {
+    void draw();
+}
+
+
+package com.java.lambda.lambdau;
+
+import com.java.lambda.Employee;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class SortedList {
+    public SortedList() {
+    }
+
+    public static void main(String[] args) {
+        List<String> list = new ArrayList();
+        list.add("A");
+        list.add("D");
+        list.add("C");
+        list.add("B");
+        list.add("F");
+        list.add("E");
+        Collections.sort(list);
+        System.out.println(list);
+        Collections.reverse(list);
+        System.out.println(list);
+        List<Employee> employees = new ArrayList();
+        employees.add(new Employee(10, "ramesh", 30, 400000L));
+        employees.add(new Employee(11, "santhosh", 40, 300000L));
+        employees.add(new Employee(12, "sam", 20, 450000L));
+        employees.add(new Employee(13, "pramod", 29, 500000L));
+        Collections.sort(employees, new MySort());
+        System.out.println(employees);
+        Collections.sort(employees, new Comparator<Employee>() {
+            public int compare(Employee o1, Employee o2) {
+                return (int)(o1.getSalary() - o2.getSalary());
+            }
+        });
+        System.out.println(employees);
+        Collections.sort(employees, (o1, o2) -> {
+            return (int)(o2.getSalary() - o1.getSalary());
+        });
+        System.out.println(employees);
+    }
+}
+
+package com.java.lambda.lambdau;
+
+class Square implements Shape {
+    Square() {
+    }
+
+    public void draw() {
+        System.out.println("Square");
+    }
+}
+
+package com.java.lambda.lambdau;
+
+class ThreadDemo implements Runnable {
+    ThreadDemo() {
+    }
+
+    public void run() {
+        System.out.println("run method called");
+    }
+}
+
+
+package com.java.lambda.lambdau;
+
+class Triangle implements Shape {
+    Triangle() {
+    }
+
+    public void draw() {
+        System.out.println("Triangle");
+    }
+}
+
+
+package com.java.lambda.methodrefernce;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+import java.util.function.BiFunction;
+import java.util.function.Function;
+
+public class MethodReference {
+    public MethodReference() {
+    }
+
+    public void display(String msg) {
+        msg = msg.toUpperCase();
+        System.out.println(msg);
+    }
+
+    public static int addition(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        Function<Integer, Double> fun = (input) -> {
+            return Math.sqrt((double)input);
+        };
+        System.out.println(fun.apply(4));
+        Function<Integer, Double> fun2 = Math::sqrt;
+        System.out.println(fun2.apply(4));
+        BiFunction<Integer, Integer, Integer> biFunction = (a, b) -> {
+            return addition(a, b);
+        };
+        System.out.println(biFunction.apply(2, 3));
+        BiFunction<Integer, Integer, Integer> biFunction2 = MethodReference::addition;
+        System.out.println(biFunction2.apply(2, 3));
+        MethodReference obj = new MethodReference();
+        Objects.requireNonNull(obj);
+        Printable printable = obj::display;
+        printable.print("Hello World");
+        Function<String, String> m = (input) -> {
+            return input.toLowerCase();
+        };
+        System.out.println((String)m.apply("Hello World"));
+        Function<String, String> m2 = String::toLowerCase;
+        System.out.println((String)m2.apply("Hello World"));
+        List<String> fruits = Arrays.asList("Apple", "Banana", "Orange");
+        Function<List<String>, Set<String>> set = (fruitsList) -> {
+            return new HashSet(fruitsList);
+        };
+        System.out.println(set.apply(fruits));
+        Function<List<String>, Set<String>> set2 = HashSet::new;
+        System.out.println(set2.apply(fruits));
+    }
+}
+
+
+package com.java.lambda.methodrefernce;
+
+@FunctionalInterface
+interface Printable {
+    void print(String var1);
+}
+
+
+package com.java.lambda.optional;
+
+import java.util.Optional;
+
+public class OptionalDemo {
+    public OptionalDemo() {
+    }
+
+    public static void main(String[] args) {
+        String result = " abc ";
+        if (result != null && result.contains("abc")) {
+            System.out.println(result);
+        }
+
+        Optional<String> optionalStr = Optional.of(result);
+        optionalStr.filter((res) -> {
+            return res.contains("abc");
+        }).map(String::trim).ifPresent((res) -> {
+            System.out.println(res);
+        });
+    }
+}
+
+
+package com.java.lambda.streams;
+
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Stream;
+
+public class CreateStreamObjects {
+    public CreateStreamObjects() {
+    }
+
+    public static void main(String[] args) {
+        Stream<String> stream = Stream.of("Hello", "World");
+        stream.forEach((str) -> {
+            System.out.println(str);
+        });
+        Stream var10000 = Stream.of("h", "w");
+        PrintStream var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        var10000.forEach(var10001::println);
+        Collection<String> collection = Arrays.asList("Hello", "World");
+        Stream<String> stream2 = collection.stream();
+        var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        stream2.forEach(var10001::println);
+        List<String> collection1 = Arrays.asList("Hello", "World");
+        Stream<String> stream3 = collection.stream();
+        var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        stream3.forEach(var10001::println);
+        System.out.println("-----------------------");
+        Set<String> set = new HashSet(Arrays.asList("Hello", "World"));
+        Stream<String> stream4 = set.stream();
+        var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        stream4.forEach(var10001::println);
+        String[] array = new String[]{"Hello", "World"};
+        Stream<String> stream5 = Arrays.stream(array);
+        var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        stream5.forEach(var10001::println);
+    }
+}
+
+
+package com.java.lambda.streams;
+
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Stream;
+
+public class FilterForEach {
+    public FilterForEach() {
+    }
+
+    public static void main(String[] args) {
+        List<Product> list = new ArrayList();
+        Iterator var2 = getProducts().iterator();
+
+        Product product;
+        while(var2.hasNext()) {
+            product = (Product)var2.next();
+            if (product.getPrice() > 25000.0F) {
+                list.add(product);
+            }
+        }
+
+        var2 = list.iterator();
+
+        while(var2.hasNext()) {
+            product = (Product)var2.next();
+            System.out.println(product);
+        }
+
+        List<Product> filteredList = getProducts();
+        Stream var10000 = filteredList.stream().filter((productx) -> {
+            return productx.getPrice() > 25000.0F;
+        });
+        PrintStream var10001 = System.out;
+        Objects.requireNonNull(var10001);
+        var10000.forEach(var10001::println);
+    }
+
+    private static List<Product> getProducts() {
+        List<Product> products = new ArrayList();
+        products.add(new Product(1, "Lg", 35000.0F));
+        products.add(new Product(2, "samsung", 25000.0F));
+        products.add(new Product(3, "copilate", 55000.0F));
+        products.add(new Product(4, "motrola", 45000.0F));
+        return products;
+    }
+}
+
+
+package com.java.lambda.streams;
+
+class Product {
+    private int id;
+    private String name;
+    private float price;
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public float getPrice() {
+        return this.price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public Product(int id, String name, float price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    public String toString() {
+        return "Product{id=" + this.id + ", name='" + this.name + "', price=" + this.price + "}";
+    }
+}
+
+package com.java.lambda;
+
+interface Addable {
+    int add(int var1, int var2);
+}
+
+package com.java.lambda;
+
+class Addable_imp implements Addable {
+    Addable_imp() {
+    }
+
+    public int add(int a, int b) {
+        return a + b;
+    }
+}
+
+
+package com.java.lambda;
+
+public class Employee {
+    private int id;
+    private String name;
+    private int age;
+    private long salary;
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public long getSalary() {
+        return this.salary;
+    }
+
+    public void setSalary(long salary) {
+        this.salary = salary;
+    }
+
+    public Employee(int id, String name, int age, long salary) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    public String toString() {
+        return "Employee{id=" + this.id + ", name='" + this.name + "', age=" + this.age + ", salary=" + this.salary + "}";
+    }
+}
+
+package com.java.lambda;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class LambaExample5 {
+    public LambaExample5() {
+    }
+
+    public static void main(String[] args) {
+        List<String> list = new ArrayList();
+        list.add("c");
+        list.add("C++");
+        list.add("Java");
+        Iterator var2 = list.iterator();
+
+        while(var2.hasNext()) {
+            String s = (String)var2.next();
+            System.out.println(s);
+        }
+
+        list.forEach((element) -> {
+            System.out.println(element);
+        });
+    }
+}
+
+
+package com.java.lambda;
+
+import java.util.Objects;
+
+public class LambdaExample {
+    public LambdaExample() {
+    }
+
+    public static void main(String[] args) {
+        String str = "hello";
+        Shape rectangle = () -> {
+            System.out.println("Rectangle");
+        };
+        Objects.requireNonNull(rectangle);
+        print(rectangle::draw);
+        print(() -> {
+            System.out.println("square");
+        });
+        print(() -> {
+            System.out.println("triangle");
+        });
+    }
+
+    public static void print(Shape s) {
+        s.draw();
+    }
+}
+
+
+package com.java.lambda;
+
+public class LambdaExample2 {
+    public LambdaExample2() {
+    }
+
+    public static void main(String[] args) {
+        Printable printable = new Printable() {
+            public void print(String message) {
+                System.out.println(message);
+            }
+        };
+        printable.print("Hello World");
+        Printable printable2 = (message) -> {
+            System.out.println(message);
+        };
+        printable2.print("Hello World");
+    }
+}
+
+package com.java.lambda;
+
+public class LambdaParameters {
+    public LambdaParameters() {
+    }
+
+    public static void main(String[] args) {
+        Addable add = (a, b) -> {
+            return a + b;
+        };
+        int result = add.add(1, 2);
+        System.out.println(result);
+        Addable add2 = (a, b) -> {
+            int c = a + b;
+            return c;
+        };
+        int result2 = add2.add(1, 2);
+        System.out.println(result2);
+    }
+}
+
+package com.java.lambda;
+
+public class MatrixAdditionExample {
+    public MatrixAdditionExample() {
+    }
+
+    public static void main(String[] args) {
+        int[][] a = new int[][]{{1, 3, 4}, {2, 4, 3}, {3, 4, 5}};
+        int[][] b = new int[][]{{1, 3, 4}, {2, 4, 3}, {1, 2, 4}};
+        int[][] c = new int[3][3];
+
+        for(int i = 0; i < 3; ++i) {
+            for(int j = 0; j < 3; ++j) {
+                c[i][j] = a[i][j] - b[i][j];
+                System.out.print(c[i][j] + " ");
+            }
+
+            System.out.println();
+        }
+
+    }
+}
+
+package com.java.lambda;
+
+import java.util.Comparator;
+
+class MySort implements Comparator<Employee> {
+    MySort() {
+    }
+
+    public int compare(Employee o1, Employee o2) {
+        return (int)(o2.getSalary() - o1.getSalary());
+    }
+}
+
+
+package com.java.lambda;
+
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+public class Practice {
+    public Practice() {
+    }
+
+    public static void main(String[] args) {
+        Map<String, Integer> map = new HashMap();
+        map.put("one", 1);
+        map.put("two", 2);
+        map.put("three", 3);
+        map.put("four", 4);
+        map.put((Object)null, 5);
+        System.out.println(map);
+        Iterator var2 = map.entrySet().iterator();
+
+        PrintStream var10000;
+        String var10001;
+        while(var2.hasNext()) {
+            Map.Entry<String, Integer> set = (Map.Entry)var2.next();
+            var10000 = System.out;
+            var10001 = (String)set.getKey();
+            var10000.println(var10001 + " " + set.getValue());
+        }
+
+        map.forEach((k, v) -> {
+            System.out.println(k + " " + v);
+        });
+        System.out.println("........");
+        Set<Map.Entry<String, Integer>> set = map.entrySet();
+        Iterator<Map.Entry<String, Integer>> it = set.iterator();
+
+        while(it.hasNext()) {
+            Map.Entry<String, Integer> entry = (Map.Entry)it.next();
+            var10000 = System.out;
+            var10001 = (String)entry.getKey();
+            var10000.println(var10001 + " " + entry.getValue());
+        }
+
+    }
+}
+
+
+package com.java.lambda;
+
+interface Printable {
+    void print(String var1);
+}
+
+
+package com.java.lambda;
+
+class Rectangle implements Shape {
+    Rectangle() {
+    }
+
+    public void draw() {
+        System.out.println("Rectangle");
+    }
+}
+
+package com.java.lambda;
+
+public class RunnableLambdaExample {
+    public RunnableLambdaExample() {
+    }
+
+    public static void main(String[] args) {
+        Thread t1 = new Thread(new ThreadDemo());
+        t1.start();
+        Runnable runnable = () -> {
+            System.out.println("runnable called");
+        };
+        Thread t2 = new Thread(() -> {
+            System.out.println("runnable called");
+        });
+        t2.start();
+    }
+}
+
+
+package com.java.lambda;
+
+interface Shape {
+    void draw();
+}
+
+package com.java.lambda;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class SortedList {
+    public SortedList() {
+    }
+
+    public static void main(String[] args) {
+        List<String> list = new ArrayList();
+        list.add("A");
+        list.add("D");
+        list.add("C");
+        list.add("B");
+        list.add("F");
+        list.add("E");
+        Collections.sort(list);
+        System.out.println(list);
+        Collections.reverse(list);
+        System.out.println(list);
+        List<Employee> employees = new ArrayList();
+        employees.add(new Employee(10, "ramesh", 30, 400000L));
+        employees.add(new Employee(11, "santhosh", 40, 300000L));
+        employees.add(new Employee(12, "sam", 20, 450000L));
+        employees.add(new Employee(13, "pramod", 29, 500000L));
+        Collections.sort(employees, new MySort());
+        System.out.println(employees);
+        Collections.sort(employees, new Comparator<Employee>() {
+            public int compare(Employee o1, Employee o2) {
+                return (int)(o1.getSalary() - o2.getSalary());
+            }
+        });
+        System.out.println(employees);
+        Collections.sort(employees, (o1, o2) -> {
+            return (int)(o2.getSalary() - o1.getSalary());
+        });
+        System.out.println(employees);
+    }
+}
+
+
+package com.java.lambda;
+
+class Square implements Shape {
+    Square() {
+    }
+
+    public void draw() {
+        System.out.println("Square");
+    }
+}
+
+
+package com.java.lambda;
+
+class ThreadDemo implements Runnable {
+    ThreadDemo() {
+    }
+
+    public void run() {
+        System.out.println("run method called");
+    }
+}
+
+
+package com.java.lambda;
+
+class Triangle implements Shape {
+    Triangle() {
+    }
+
+    public void draw() {
+        System.out.println("Triangle");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
